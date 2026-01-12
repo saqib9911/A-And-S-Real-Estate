@@ -1,0 +1,265 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header bg-dark-blue text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-2">About Us</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="{{ url_for('home') }}" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">About Us</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Company Overview -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <div class="rounded-4 overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop" alt="Real Estate Team" class="img-fluid w-100">
+                    </div>
+                    <div class="position-absolute bg-gold text-white p-4 rounded shadow-lg" style="bottom: -20px; right: -20px;">
+                        <h3 class="fw-bold mb-0">15+</h3>
+                        <small>Years of Excellence</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <span class="text-gold fw-semibold text-uppercase ls-2 small">Who We Are</span>
+                <h2 class="display-5 fw-bold text-dark-blue mb-4">Building Dreams Since 2009</h2>
+                <p class="text-secondary mb-4"><strong>A&S RealEstate And Builders</strong> is a premier real estate company based in Islamabad, Pakistan, specializing in residential and commercial properties across the city's most prestigious locations.</p>
+                <p class="text-secondary mb-4">Our mission is to provide our clients with the best real estate solutions, backed by integrity, transparency, and exceptional customer service. With over 15 years of experience in the Islamabad real estate market, we have established ourselves as a trusted name among property buyers and investors.</p>
+                <p class="text-secondary mb-4">From luxury plots in Bharia Enclave to exclusive farmhouses in Margalla Orchard, our portfolio covers the most sought-after locations in the capital territory.</p>
+                
+                <div class="row g-3 mt-4">
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-gold-light rounded-circle p-2 me-3">
+                                <i class="bi bi-check-lg text-gold"></i>
+                            </div>
+                            <span class="fw-semibold text-dark">Trusted by 500+ Clients</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-gold-light rounded-circle p-2 me-3">
+                                <i class="bi bi-check-lg text-gold"></i>
+                            </div>
+                            <span class="fw-semibold text-dark">100% Transparency</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-gold-light rounded-circle p-2 me-3">
+                                <i class="bi bi-check-lg text-gold"></i>
+                            </div>
+                            <span class="fw-semibold text-dark">Expert Legal Team</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-gold-light rounded-circle p-2 me-3">
+                                <i class="bi bi-check-lg text-gold"></i>
+                            </div>
+                            <span class="fw-semibold text-dark">24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Team Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="text-gold fw-semibold text-uppercase ls-2 small">Our Team</span>
+            <h2 class="display-5 fw-bold text-dark-blue mt-2">Meet The Owners</h2>
+            <p class="text-secondary mx-auto mt-3" style="max-width: 600px;">Our success is driven by the vision and dedication of our founders who bring decades of experience in real estate and construction.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <!-- Umer Aftab -->
+            <div class="col-md-5 col-lg-4">
+                <div class="team-card bg-white rounded-4 overflow-hidden shadow-sm text-center h-100">
+                    <div class="team-image-wrapper py-5 bg-dark-blue">
+                        <div class="team-avatar mx-auto bg-gold text-white rounded-circle d-flex align-items-center justify-content-center fw-bold fs-1">
+                            UA
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="fw-bold text-dark-blue mb-1">Umer Aftab</h4>
+                        <p class="text-gold fw-semibold small mb-3">Co-Founder & CEO</p>
+                        <p class="text-secondary small mb-3">With over 15 years of experience in Islamabad's real estate market, Umer leads A&S RealEstate with vision and integrity. His expertise in property valuation and investment makes him a trusted advisor for clients.</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <a href="tel:{{ info.phone_umer }}" class="text-dark-blue fs-5"><i class="bi bi-telephone-fill"></i></a>
+                            <a href="https://wa.me/923111544996" class="text-success fs-5"><i class="bi bi-whatsapp"></i></a>
+                            <a href="mailto:{{ info.email }}" class="text-danger fs-5"><i class="bi bi-envelope-fill"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bilal Aftab -->
+            <div class="col-md-5 col-lg-4">
+                <div class="team-card bg-white rounded-4 overflow-hidden shadow-sm text-center h-100">
+                    <div class="team-image-wrapper py-5 bg-dark-blue">
+                        <div class="team-avatar mx-auto bg-gold text-white rounded-circle d-flex align-items-center justify-content-center fw-bold fs-1">
+                            BA
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="fw-bold text-dark-blue mb-1">Bilal Aftab</h4>
+                        <p class="text-gold fw-semibold small mb-3">Co-Founder & Operations Head</p>
+                        <p class="text-secondary small mb-3">Bilal manages day-to-day operations and client relations at A&S RealEstate. His dedication to customer satisfaction and attention to detail ensures every client receives personalized service.</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <a href="tel:{{ info.phone_bilal }}" class="text-dark-blue fs-5"><i class="bi bi-telephone-fill"></i></a>
+                            <a href="https://wa.me/923115496970" class="text-success fs-5"><i class="bi bi-whatsapp"></i></a>
+                            <a href="mailto:{{ info.email }}" class="text-danger fs-5"><i class="bi bi-envelope-fill"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <span class="text-gold fw-semibold text-uppercase ls-2 small">Why Choose Us</span>
+                <h2 class="display-5 fw-bold text-dark-blue mb-4">The A&S Difference</h2>
+                <div class="accordion" id="whyChooseUs">
+                    <div class="accordion-item border-0 mb-3 rounded-3 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button bg-white rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                <i class="bi bi-shield-check text-gold me-2 fs-5"></i>
+                                Trusted & Verified Properties
+                            </button>
+                        </h3>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#whyChooseUs">
+                            <div class="accordion-body text-secondary">
+                                All our properties are thoroughly verified for legal documentation and ownership. We work only with CDA-approved and authenticated housing societies.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-3 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed bg-white rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                <i class="bi bi-currency-dollar text-gold me-2 fs-5"></i>
+                                Best Price Guarantee
+                            </button>
+                        </h3>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#whyChooseUs">
+                            <div class="accordion-body text-secondary">
+                                We offer competitive pricing with no hidden costs. Our transparent approach ensures you get the best value for your investment in Islamabad's premium locations.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-3 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed bg-white rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                <i class="bi bi-person-check text-gold me-2 fs-5"></i>
+                                Expert Consultation
+                            </button>
+                        </h3>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#whyChooseUs">
+                            <div class="accordion-body text-secondary">
+                                Our team of experienced professionals provides personalized consultation to help you find the perfect property that matches your requirements and budget.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 rounded-3 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed bg-white rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                <i class="bi bi-file-earmark-text text-gold me-2 fs-5"></i>
+                                Complete Legal Assistance
+                            </button>
+                        </h3>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#whyChooseUs">
+                            <div class="accordion-body text-secondary">
+                                From documentation to registration, our legal team handles all aspects of property transactions, ensuring a smooth and secure process for our clients.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-dark-blue text-white p-5 rounded-4">
+                    <h3 class="fw-bold mb-4 text-center">Our Coverage Area</h3>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-geo-alt-fill text-gold fs-4 me-2"></i>
+                                <span>Bharia Enclave</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-geo-alt-fill text-gold fs-4 me-2"></i>
+                                <span>Park View City</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-geo-alt-fill text-gold fs-4 me-2"></i>
+                                <span>Park Enclave</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-geo-alt-fill text-gold fs-4 me-2"></i>
+                                <span>Margalla Enclave</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-geo-alt-fill text-gold fs-4 me-2"></i>
+                                <span>Margalla Orchard</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-geo-alt-fill text-gold fs-4 me-2"></i>
+                                <span>PHA Officers Residence</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="border-secondary my-4">
+                    <div class="text-center">
+                        <p class="mb-3 text-white-50">Ready to start your property journey?</p>
+                        <a href="{{ url_for('contact') }}" class="btn btn-gold btn-lg rounded-pill px-4">Contact Us Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-gold text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h3 class="fw-bold mb-2">Start Your Property Search Today</h3>
+                <p class="mb-0 opacity-75">Contact Umer Aftab or Bilal Aftab for expert guidance on buying your dream property.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <a href="tel:+923111544996" class="btn btn-dark btn-lg rounded-pill me-2">
+                    <i class="bi bi-telephone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

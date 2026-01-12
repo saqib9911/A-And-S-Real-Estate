@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header bg-dark-blue text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-2">Property Listings</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="{{ url_for('home') }}" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Properties</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <a href="https://wa.me/923111544996" class="btn btn-gold rounded-pill" target="_blank">
+                    <i class="bi bi-whatsapp me-2"></i>WhatsApp Inquiry
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filter Section -->
+<section class="py-4 bg-light border-bottom">
+    <div class="container">
+        <div class="row g-3 align-items-center">
+            <div class="col-md-3">
+                <select class="form-select rounded-pill" id="areaFilter">
+                    <option value="">All Areas</option>
+                    <option value="Bharia Enclave">Bharia Enclave</option>
+                    <option value="Park View City">Park View City</option>
+                    <option value="Park Enclave">Park Enclave</option>
+                    <option value="Margalla Enclave">Margalla Enclave</option>
+                    <option value="Margalla Orchard">Margalla Orchard</option>
+                    <option value="PHA Officers Residence">PHA Officers Residence</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select rounded-pill" id="typeFilter">
+                    <option value="">All Types</option>
+                    <option value="Plot">Plot</option>
+                    <option value="House">House</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Commercial">Commercial</option>
+                    <option value="Farmhouse">Farmhouse</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select rounded-pill" id="priceFilter">
+                    <option value="">All Prices</option>
+                    <option value="1">Under 2 Crore</option>
+                    <option value="2">2 - 4 Crore</option>
+                    <option value="3">4 - 6 Crore</option>
+                    <option value="4">Above 6 Crore</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-dark-blue w-100 rounded-pill" onclick="filterListings()">
+                    <i class="bi bi-funnel me-2"></i>Apply Filters
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Listings Grid -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4" id="listingsGrid">
+            {% for listing in listings %}
+            <div class="col-md-6 col-lg-4 listing-item" data-area="{{ listing.area }}" data-type="{{ listing.type }}" data-price="{{ listing.price }}">
+                <div class="card property-card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
+                    <div class="position-relative">
+                        <div class="property-image" style="height: 220px; background: linear-gradient(45deg, #1e3a8a, #3b82f6);">
+                            <div class="d-flex align-items-center justify-content-center h-100 text-white">
+                                <i class="bi bi-building fs-1 opacity-50"></i>
+                            </div>
+                        </div>
+                        <div class="position-absolute top-0 start-0 m-3">
+                            <span class="badge bg-gold text-white rounded-pill px-3 py-2">{{ listing.type }}</span>
+                        </div>
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-dark text-white rounded-pill px-3 py-2">{{ listing.size }}</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h5 class="card-title fw-bold text-dark-blue mb-1">{{ listing.title }}</h5>
+                                <p class="text-secondary small mb-0">
+                                    <i class="bi bi-geo-alt-fill text-gold me-1"></i>
+                                    {{ listing.area }}
+                                </p>
+                            </div>
+                            <div class="text-end">
+                                <h4 class="text-gold fw-bold mb-0">{{ listing.price }}</h4>
+                            </div>
+                        </div>
+                        <div class="features-list mb-3">
+                            {% for feature in listing.features %}
+                            <span class="badge bg-light text-dark rounded-pill px-2 py-1 me-1 mb-1 small">{{ feature }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0 pt-0 pb-4 px-4">
+                        <div class="d-flex gap-2">
+                            <a href="https://wa.me/923111544996?text=I am interested in {{ listing.title }} at {{ listing.area }}" class="btn btn-success flex-grow-1 rounded-pill" target="_blank">
+                                <i class="bi bi-whatsapp me-2"></i>WhatsApp
+                            </a>
+                            <a href="tel:{{ info.phone_umer }}" class="btn btn-dark-blue flex-grow-1 rounded-pill">
+                                <i class="bi bi-telephone me-2"></i>Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- No Results Message -->
+        <div id="noResults" class="text-center py-5 d-none">
+            <i class="bi bi-search display-1 text-secondary"></i>
+            <h3 class="mt-3 text-secondary">No properties found</h3>
+            <p class="text-secondary">Try adjusting your filters to see more results.</p>
+            <button class="btn btn-dark-blue rounded-pill" onclick="resetFilters()">Reset Filters</button>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Contact Section -->
+<section class="py-5 bg-dark-blue text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h3 class="fw-bold mb-2">Can't Find What You're Looking For?</h3>
+                <p class="mb-0 text-white-50">Contact us directly for custom property searches and exclusive listings not shown on the website.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <div class="d-flex flex-column gap-2">
+                    <a href="tel:{{ info.phone_umer }}" class="btn btn-gold btn-lg rounded-pill">
+                        <i class="bi bi-telephone me-2"></i>{{ info.phone_umer }} (Umer)
+                    </a>
+                    <a href="tel:{{ info.phone_bilal }}" class="btn btn-outline-light btn-lg rounded-pill">
+                        <i class="bi bi-telephone me-2"></i>{{ info.phone_bilal }} (Bilal)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for Filtering -->
+<script>
+function filterListings() {
+    const areaFilter = document.getElementById('areaFilter').value;
+    const typeFilter = document.getElementById('typeFilter').value;
+    const priceFilter = document.getElementById('priceFilter').value;
+    
+    const listings = document.querySelectorAll('.listing-item');
+    let visibleCount = 0;
+    
+    listings.forEach(item => {
+        const area = item.getAttribute('data-area');
+        const type = item.getAttribute('data-type');
+        const priceText = item.getAttribute('data-price');
+        
+        // Parse price to get numeric value
+        let priceValue = 0;
+        const priceMatch = priceText.match(/[\d.]+/);
+        if (priceMatch) {
+            priceValue = parseFloat(priceMatch[0]);
+        }
+        
+        let show = true;
+        
+        if (areaFilter && area !== areaFilter) show = false;
+        if (typeFilter && type !== typeFilter) show = false;
+        if (priceFilter) {
+            if (priceFilter === '1' && priceValue >= 2) show = false;
+            if (priceFilter === '2' && (priceValue < 2 || priceValue >= 4)) show = false;
+            if (priceFilter === '3' && (priceValue < 4 || priceValue >= 6)) show = false;
+            if (priceFilter === '4' && priceValue <= 6) show = false;
+        }
+        
+        if (show) {
+            item.style.display = 'block';
+            visibleCount++;
+        } else {
+            item.style.display = 'none';
+        }
+    });
+    
+    // Show/hide no results message
+    const noResults = document.getElementById('noResults');
+    const grid = document.getElementById('listingsGrid');
+    
+    if (visibleCount === 0) {
+        grid.style.display = 'none';
+        noResults.classList.remove('d-none');
+    } else {
+        grid.style.display = 'flex';
+        noResults.classList.add('d-none');
+    }
+}
+
+function resetFilters() {
+    document.getElementById('areaFilter').value = '';
+    document.getElementById('typeFilter').value = '';
+    document.getElementById('priceFilter').value = '';
+    
+    const listings = document.querySelectorAll('.listing-item');
+    listings.forEach(item => {
+        item.style.display = 'block';
+    });
+    
+    document.getElementById('listingsGrid').style.display = 'flex';
+    document.getElementById('noResults').classList.add('d-none');
+}
+</script>
+{% endblock %}

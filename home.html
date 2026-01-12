@@ -1,0 +1,261 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section position-relative d-flex align-items-center justify-content-center text-center">
+    <div class="hero-overlay position-absolute w-100 h-100"></div>
+    <div class="container position-relative z-2">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h1 class="display-3 fw-bold text-white mb-4 animate-fade-in">Build Your Dream in Islamabad</h1>
+                <p class="lead text-white mb-5 fs-4 animate-fade-in-delay">Your Trusted Partner for Premium Real Estate & Construction Services</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3 animate-fade-in-delay-2">
+                    <a href="{{ url_for('listings') }}" class="btn btn-gold btn-lg px-4 rounded-pill fw-semibold">
+                        <i class="bi bi-building me-2"></i>View Properties
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-lg px-4 rounded-pill fw-semibold">
+                        <i class="bi bi-telephone me-2"></i>Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section py-4">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <h3 class="text-gold fw-bold display-6">500+</h3>
+                    <p class="text-secondary mb-0">Properties Sold</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <h3 class="text-gold fw-bold display-6">200+</h3>
+                    <p class="text-secondary mb-0">Happy Clients</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <h3 class="text-gold fw-bold display-6">6</h3>
+                    <p class="text-secondary mb-0">Prime Locations</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <h3 class="text-gold fw-bold display-6">15+</h3>
+                    <p class="text-secondary mb-0">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="about-image-wrapper position-relative">
+                    <div class="about-main-image rounded-4 overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop" alt="Modern Building Islamabad" class="img-fluid w-100">
+                    </div>
+                    <div class="about-badge position-absolute bg-gold text-white p-3 rounded shadow">
+                        <h4 class="mb-0 fw-bold">15+</h4>
+                        <small>Years Experience</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-content ps-lg-4">
+                    <span class="text-gold fw-semibold text-uppercase ls-2 small">About Us</span>
+                    <h2 class="display-5 fw-bold text-dark-blue mb-4">Your Dream Home Starts Here</h2>
+                    <p class="text-secondary mb-4">Welcome to <strong>A&S RealEstate And Builders</strong>, your trusted partner in Islamabad's premium real estate market. With years of experience and a commitment to excellence, we help you find the perfect property that matches your lifestyle and investment goals.</p>
+                    <p class="text-secondary mb-4">Whether you are looking for residential plots in serene locations like Margalla Orchard or commercial investments in Park View City, our expert team led by Umer Aftab and Bilal Aftab is here to guide you every step of the way.</p>
+                    <div class="features-list">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon bg-gold-light rounded-circle me-3 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-check-circle-fill text-gold"></i>
+                            </div>
+                            <span class="text-secondary">Professional & Experienced Team</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon bg-gold-light rounded-circle me-3 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-check-circle-fill text-gold"></i>
+                            </div>
+                            <span class="text-secondary">Transparent Dealings</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon bg-gold-light rounded-circle me-3 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-check-circle-fill text-gold"></i>
+                            </div>
+                            <span class="text-secondary">Legal Documentation Support</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon bg-gold-light rounded-circle me-3 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-check-circle-fill text-gold"></i>
+                            </div>
+                            <span class="text-secondary">After Sales Support</span>
+                        </div>
+                    </div>
+                    <a href="{{ url_for('about') }}" class="btn btn-dark-blue btn-lg mt-4 rounded-pill px-4">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="text-gold fw-semibold text-uppercase ls-2 small">Our Services</span>
+            <h2 class="display-5 fw-bold text-dark-blue mt-2">What We Offer</h2>
+        </div>
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card h-100 p-4 rounded-4 bg-white shadow-sm border-0 hover-lift transition-all">
+                    <div class="service-icon bg-gold-light rounded-3 mb-4 d-flex align-items-center justify-content-center">
+                        <i class="bi {{ service.icon }} fs-2 text-gold"></i>
+                    </div>
+                    <h4 class="fw-bold text-dark-blue mb-3">{{ service.title }}</h4>
+                    <p class="text-secondary mb-0">{{ service.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Featured Areas Section -->
+<section class="py-5 bg-dark-blue text-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="text-gold fw-semibold text-uppercase ls-2 small">Prime Locations</span>
+            <h2 class="display-5 fw-bold mt-2">Featured Areas in Islamabad</h2>
+            <p class="text-white-50 mt-3 mx-auto" style="max-width: 600px;">We operate in the most prestigious and rapidly growing areas of Islamabad, offering you the best investment opportunities and premium living standards.</p>
+        </div>
+        <div class="row g-4">
+            {% for area in areas %}
+            <div class="col-md-6 col-lg-4">
+                <div class="area-card h-100 bg-white bg-opacity-10 rounded-4 overflow-hidden backdrop-blur-sm border border-white border-opacity-20 hover-lift transition-all">
+                    <div class="area-image position-relative" style="height: 200px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop" alt="{{ area.name }}" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="area-badge position-absolute top-0 end-0 bg-gold text-white px-3 py-1 m-3 rounded-pill small fw-semibold">
+                            Featured
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="fw-bold mb-3">{{ area.name }}</h4>
+                        <p class="text-white-50 small mb-3">{{ area.description }}</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            {% for feature in area.features %}
+                            <span class="badge bg-white bg-opacity-20 text-white rounded-pill px-2 py-1 small">{{ feature }}</span>
+                            {% endfor %}
+                        </div>
+                        <a href="{{ url_for('contact') }}" class="btn btn-gold btn-sm w-100 rounded-pill">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="cta-section rounded-4 p-5 text-center">
+            <h2 class="display-5 fw-bold text-dark-blue mb-3">Ready to Find Your Dream Property?</h2>
+            <p class="text-secondary mb-4 mx-auto" style="max-width: 600px;">Contact Umer Aftab or Bilal Aftab today for a free consultation and let us help you find the perfect property in Islamabad.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="tel:+923111544996" class="btn btn-dark-blue btn-lg rounded-pill px-4">
+                    <i class="bi bi-telephone me-2"></i>Call Now: +92 311 1544996
+                </a>
+                <a href="https://wa.me/923111544996" class="btn btn-success btn-lg rounded-pill px-4" target="_blank">
+                    <i class="bi bi-whatsapp me-2"></i>Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="text-gold fw-semibold text-uppercase ls-2 small">Testimonials</span>
+            <h2 class="display-5 fw-bold text-dark-blue mt-2">What Our Clients Say</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="testimonial-card h-100 p-4 bg-white rounded-4 shadow-sm border-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="testimonial-avatar bg-gold text-white rounded-circle d-flex align-items-center justify-content-center fw-bold">
+                            A
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-0 fw-bold">Ahmed Khan</h5>
+                            <small class="text-secondary">Park View City</small>
+                        </div>
+                    </div>
+                    <p class="text-secondary mb-0">"Excellent service from A&S RealEstate. They helped me find the perfect plot in Park View City. Very professional and transparent throughout the process."</p>
+                    <div class="mt-3 text-gold">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card h-100 p-4 bg-white rounded-4 shadow-sm border-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="testimonial-avatar bg-gold text-white rounded-circle d-flex align-items-center justify-content-center fw-bold">
+                            S
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-0 fw-bold">Sarah Malik</h5>
+                            <small class="text-secondary">Bharia Enclave</small>
+                        </div>
+                    </div>
+                    <p class="text-secondary mb-0">"Very satisfied with my purchase at Bharia Enclave. Umer Aftab and his team were extremely helpful and guided me through every step. Highly recommended!"</p>
+                    <div class="mt-3 text-gold">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card h-100 p-4 bg-white rounded-4 shadow-sm border-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="testimonial-avatar bg-gold text-white rounded-circle d-flex align-items-center justify-content-center fw-bold">
+                            R
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-0 fw-bold">Rashid Ali</h5>
+                            <small class="text-secondary">PHA Officers Residence</small>
+                        </div>
+                    </div>
+                    <p class="text-secondary mb-0">"Great experience buying my apartment at PHA Officers Residence. Bilal Aftab provided excellent advice and made the entire process smooth and hassle-free."</p>
+                    <div class="mt-3 text-gold">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
